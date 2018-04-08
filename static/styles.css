@@ -28,6 +28,17 @@ body {
 	background-color: beige;
 }
 
+.notes {
+	padding-top: 5%;
+	padding-bottom: 10%;
+	padding-left: 10%;
+	padding-right: 10%;
+	font-family: \'Roboto\', sans-serif; 
+	font-size: 36px; 
+	line-height: 1.25;
+	color: #424242
+}
+
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
   color: #212121;

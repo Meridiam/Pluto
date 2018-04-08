@@ -3,9 +3,13 @@
     <head>
         <title>Pluto</title>
         <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="./static/styles.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/vendors/scrolloverflow.min.js"></script>
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
@@ -13,33 +17,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="./static/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         
         <script>
             $(document).ready(function() {
-                
-                /* Every time the window is scrolled ... */
-                $(window).scroll( function(){
-    
-                    /* Check the location of each desired element */
-                    $('.fadein').each( function(i){
-            
-                        var bottom_of_object = $(this).position().top + $(this).outerHeight();
-                        var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-                        /* If the object is completely visible in the window, fade it it */
-                        if( bottom_of_window > bottom_of_object ){
-                
-                            $(this).addClass("engaged")
-                    
-                        }
-            
-                    }); 
-    
-                });
 
                 $('#fullpage').fullpage({
-                    navigation: true
+                    navigation: true,
+                    scrollOverflow: true,
+                    afterLoad: function(index) {
+                        $(this).find(".fadein").addClass("engaged")
+                    }
                 });
     
             });
@@ -47,11 +35,18 @@
     </head>
     <body>
         <div id="fullpage">
-            <div class="section">
-                <div class="fadein">LMAO</div>
+            <div class="section" style="background-color: #fc604c">
+                <div class="notes" style="font-size: 86pt; line-height: 1.25; text-align: center; color: #ffffff">Module 1:<p style="font-size: 48pt; line-height: 1.25; color: #ffffff">What Investor Are You?</p></div>
             </div>
             <div class="section">
-                <div class="fadein">LMAO2</div>
+                <div class="notes fadein">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta nulla dui, sit amet laoreet metus pulvinar ac. Morbi sed neque accumsan, pellentesque est ut, congue ligula. Nullam a ligula nec metus hendrerit faucibus quis viverra felis. Nulla interdum pellentesque dolor vitae porta. Curabitur at ullamcorper diam, nec efficitur tortor. Fusce fringilla felis at tempor suscipit. Sed ut leo nec enim auctor tristique et id erat. Etiam mattis ullamcorper risus, vel volutpat diam gravida sit amet. Phasellus dictum augue non venenatis placerat. Cras varius ex eu ante ullamcorper convallis. Donec rhoncus at diam sed venenatis.
+
+                        Suspendisse rhoncus consectetur mauris vitae tempus. Vestibulum ultrices viverra leo, quis imperdiet est condimentum a. Proin convallis tellus purus, nec maximus ligula vestibulum vel. Duis fringilla ipsum non augue porttitor, non luctus neque tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ornare ac felis ut vehicula. Nulla lacinia elit sit amet nunc pulvinar dictum. Quisque molestie nec felis quis ullamcorper. Sed metus nibh, tristique ac ipsum id, scelerisque sollicitudin tortor. Suspendisse ultricies tortor nec orci blandit, a suscipit leo dignissim.
+                        
+                        </div>
+                </div>
+            <div class="section">
+                <div class="notes fadein">LMAO2</div>
             </div>
         </div>
     </body>
