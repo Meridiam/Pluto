@@ -65,26 +65,53 @@
             <div class="section">
                 <div class="notes fadein">Overall tips: 
 
-                    <p class="text">Calculate overall return</p>
+                    Calculate overall return 
 
-                    <p class="text">Factor in inflation</p>
+                    Factor in inflation
 
-                    <p class="text">Consider taxes on profits</p>
+                    Consider taxes on profits
 
-                    <p class="text">Check an index for that particular stock(include an animation for Dow Jones here)</p>
+                    Check an index for that particular stock
+                    <canvas id="dowChart" width="40" height="40"></canvas>
+                    <script>
+                            var ctx = document.getElementById("dowChart").getContext("2d");
+                            ctx.canvas.width = 200;
+                            ctx.canvas.length = 100;
+                            var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: ["Apr 02, 2018", "Apr 03, 2018", "Apr 04, 2018", "Apr 05, 2018", "Apr 06, 2018"],
+                                    datasets: [{
+                                        label: "Closing Price", 
+                                        data: [23644.19, 24033.36, 24264.30, 24505.22, 23932.76],
+                                        lineTension: 0.5,
+                                        borderColor: '#212121',
+                                        fill: false,
+                                    }]
+                                },
+                                options: {
+                                }
+                            });
+                    </script>
                 </div>
             </div>
             <div class="section">
-                <div class="notes fadein">Selling a long term investment, an investment purchased for over a year, will be taxed at a reduced rate while short term investments will be taxed at your income rate</div>
+                <div class="notes fadein">Selling a long term investment, an investment purchased for over a year, will be taxed at a reduced rate while shor term investments will be taxed at your income rate</div>
             </div>
             <div class="section">
-                <div class="notes fadein">Save money with asset allocation and diversifying and rebalancing your portfolio
-                <p class="text">For asset allocation: you decide how much money you put into for different types of investments</p>
-                <p class="text">For diversifying your portfolio: you decide inside the asset to invest in several different sub groups</p>
-                <p class="text">For rebalancing your portfolio: once a stock grows to quickly it is wise to reallocate investments to a slower growing investment because growing investments are more susceptible to crashes</p>
-                </div>
+                <div class="notes fadein">Save money with asset allocation and diversifying and rebalancing your portfolio</div>
             </div>
-            <div class="notes fadein"><p class="text">Realize investing is like gambling: Gains are not guarenteed there are risks involved and you can lose money you can mitigate these risks by reallocating assets or diversifying your your portfolio</p>&nbsp;<img src="./static/engineer_syllogism_2x.png" width=40% height=40% style="display: block; margin-left: auto; margin-right: auto"></div>
+            <div class="section">
+                <div class="notes fadein">For asset allocation: you decide how much money you put into for different types of investments</div>
+            </div>
+            <div class="section">
+                <div class="notes fadein">For diversifying your portfolio: you decide inside the asset to invest in several different sub groups</div>
+            </div>
+            <div class="section">
+                <div class="notes fadein">For rebalancing your portfolio: once a stock grows to quickly it is wise to reallocate investments to a slower growing investment because growing investments are more susceptible to crashes</div>
+            </div>
+            <div class="section">
+                <div class="notes fadein"><p class="text">Realize investing is like gambling: Gains are not guarenteed there are risks involved and you can lose money you can mitigate these risks by reallocating assets or diversifying your your portfolio</p>&nbsp;<img src="./static/engineer_syllogism_2x.png" width=40% height=40% style="display: block; margin-left: auto; margin-right: auto"></div>
             </div>
         </div>
     </body>
