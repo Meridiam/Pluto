@@ -52,7 +52,7 @@
 					<div class="mdl-layout-spacer"></div>
 					<!-- Navigation -->
 					<nav class="mdl-navigation">
-						<a id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-navigation__link" style="color: #ffffff; background-color: #212121"><p style="padding-top: 7px">Log In</p></a>
+						<a id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-navigation__link" style="color: #212121; background-color: #fff"><p style="padding-top: 7px">Log In</p></a>
 					</nav>
 				</div>
 			</header>
@@ -70,7 +70,14 @@
 				</nav>
 			</div>
 			<main class="mdl-layout__content">
-				<div id="firstsect"></div>
+				<div id="firstsect">
+					<section id="section07" class="demo">
+  <h1 id='hello'>Scroll Down Button #7</h1>
+  <h3>Let's Get Started!</h3>
+  <p style="visibility: hidden;" id="hey">jklj</p>
+  <a href="#othersect"><span></span><span></span><span></span></a>
+</section>
+				</div>
 				<div id="othersect">
 					<div class="mdl-grid" style="max-width: 1200px; width: 100%">
 						<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
@@ -203,5 +210,89 @@
 				</div>
 			</main>
 		</div>
+				<script type="text/javascript">
+			const prefix = 'Let\'s '
+const skills = [
+  'Discover.',
+  'Achieve.',
+  'Invest.'
+].map(s => `${s}`)
+const delay = 1
+const step = 1
+const tail = 5
+const timeout = 75
+
+
+const p = document.getElementById('hey')
+document.body.appendChild(p)
+function getRandomChar() {
+  return '|'
+}
+function getRandomColoredString(n) {
+  const fragment = document.createDocumentFragment()
+  const char = document.createElement('span')
+  char.textContent = getRandomChar()
+  fragment.appendChild(char)
+  return fragment
+}
+
+const $ = {
+  text: '',
+  prefixP: -tail,
+  skillI: 0,
+  skillP: 0,
+  direction: 'forward',
+  delay,
+  step,
+}
+
+function render() {
+  const skill = skills[$.skillI]
+
+  if ($.step) {
+    $.step--
+  } else {
+    $.step = step
+    if ($.prefixP < prefix.length) {
+      if ($.prefixP >= 0) {
+        $.text += prefix[$.prefixP]
+      }
+      $.prefixP++
+    } else {
+      if ($.direction === 'forward') {
+        if ($.skillP < skill.length) {
+          $.text += skill[$.skillP]
+          $.skillP++
+        } else {
+          if ($.delay) {
+            $.delay--
+          } else {
+            $.direction = 'backward'
+            $.delay = delay
+          }
+        }
+      } else {
+        if ($.skillP > 0) {
+          $.text = $.text.slice(0, -1)
+          $.skillP--
+        } else {
+          $.skillI = ($.skillI + 1) % skills.length
+          $.direction = 'forward'
+        }
+      }
+    }
+  }
+
+  p.textContent = $.text
+  p.appendChild(getRandomColoredString(
+    $.prefixP < prefix.length ?
+    Math.min(tail, tail + $.prefixP):
+    Math.min(tail, skill.length - $.skillP)))
+  document.getElementById('hello').innerHTML = p.innerHTML;
+  setTimeout(render, timeout)
+}
+setTimeout(render, 100)
+
+		</script>
 	</body>
 </html>
