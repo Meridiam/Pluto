@@ -79,14 +79,17 @@ hidden_2 = tf.nn.relu(tf.add(tf.matmul(hidden_1, W_hidden_2), bias_hidden_2))
 hidden_3 = tf.nn.relu(tf.add(tf.matmul(hidden_2, W_hidden_3), bias_hidden_3))
 hidden_4 = tf.nn.relu(tf.add(tf.matmul(hidden_3, W_hidden_4), bias_hidden_4))
 
+keep_prob = tf.placeholder(tf.float32)
+h_fc1_drop = tf.nn.dropout(hidden_4, keep_prob)
+
 # Output layer (transpose!)
-out = tf.transpose(tf.add(tf.matmul(hidden_4, W_out), bias_out))
+out = tf.transpose(tf.add(tf.matmul(h_fc1_drop, W_out), bias_out))
 
 # Cost function
 mse = tf.reduce_mean(tf.squared_difference(out, Y))
 
 # Optimizer
-opt = tf.train.AdamOptimizer().minimize(mse)
+opt = tf.train.AdamOptimizer(1e-4).minimize(mse)
 
 # Init
 net.run(tf.global_variables_initializer())
