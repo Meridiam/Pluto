@@ -107,13 +107,13 @@ mse_train = []
 mse_test = []
 
 # Run
-epochs = 20 #10
+epochs = 50 #10
 for e in range(epochs):
 
     # Shuffle training data
-    shuffle_indices = np.random.permutation(np.arange(len(y_train)))
-    X_train = X_train[shuffle_indices]
-    y_train = y_train[shuffle_indices]
+#    shuffle_indices = np.random.permutation(np.arange(len(y_train)))
+#    X_train = X_train[shuffle_indices]
+#    y_train = y_train[shuffle_indices]
 
     # Minibatch training
     for i in range(0, len(y_train) // batch_size):
@@ -124,7 +124,7 @@ for e in range(epochs):
         net.run(opt, feed_dict={X: batch_x, Y: batch_y})
 
         # Show progress
-        if np.mod(i, 25) == 0:
+        if np.mod(i, 50) == 0:
             # MSE train and test
             mse_train.append(net.run(mse, feed_dict={X: X_train, Y: y_train}))
             mse_test.append(net.run(mse, feed_dict={X: X_test, Y: y_test}))
@@ -156,5 +156,3 @@ def mean_absolute_percentage_error(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
 print(mean_absolute_percentage_error(y_test, pred))
-
-saver.save(net, 'saved_model', global_step=1000)
