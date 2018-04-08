@@ -71,7 +71,28 @@
 
                     Consider taxes on profits
 
-                    Check an index for that particular stock(include an animation for Dow Jones here)
+                    Check an index for that particular stock
+                    <canvas id="dowChart" width="40" height="40"></canvas>
+                    <script>
+                            var ctx = document.getElementById("dowChart").getContext("2d");
+                            ctx.canvas.width = 200;
+                            ctx.canvas.length = 100;
+                            var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: ["Apr 02, 2018", "Apr 03, 2018", "Apr 04, 2018", "Apr 05, 2018", "Apr 06, 2018"],
+                                    datasets: [{
+                                        label: "Closing Price", 
+                                        data: [23644.19, 24033.36, 24264.30, 24505.22, 23932.76],
+                                        lineTension: 0.5,
+                                        borderColor: '#212121',
+                                        fill: false,
+                                    }]
+                                },
+                                options: {
+                                }
+                            });
+                    </script>
                 </div>
             </div>
             <div class="section">
