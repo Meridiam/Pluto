@@ -107,7 +107,7 @@ mse_train = []
 mse_test = []
 
 # Run
-epochs = 10 #10
+epochs = 20 #10
 for e in range(epochs):
 
     # Shuffle training data
@@ -124,7 +124,7 @@ for e in range(epochs):
         net.run(opt, feed_dict={X: batch_x, Y: batch_y})
 
         # Show progress
-        if np.mod(i, 50) == 0:
+        if np.mod(i, 25) == 0:
             # MSE train and test
             mse_train.append(net.run(mse, feed_dict={X: X_train, Y: y_train}))
             mse_test.append(net.run(mse, feed_dict={X: X_test, Y: y_test}))
