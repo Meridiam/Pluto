@@ -26,25 +26,47 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+		<script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+		<script>
+                let stitchClient;
+          
+                function initApplication() {
+                  return stitch.StitchClientFactory.create('pluto-darkside-qvfre').then(client => {
+                    stitchClient = client;
+                  }).then(() => {
+                  });
+                }
+          
+        </script>
 	</head>
 	<body>
 		<div class="demo-layout-transparent mdl-layout mdl-js-layout">
 			<header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll">
 				<div class="mdl-layout__header-row">
 					<!-- Title -->
-					<span class="mdl-layout-title">Pluto</span>
+					<img src="./static/moon.png" height="28" width="28" style="margin-left: -10px">
+					&nbsp;
+						<span class="mdl-layout-title" style="font-size: 20pt">Pluto</span>
 					<!-- Add spacer, to align navigation to the right -->
 					<div class="mdl-layout-spacer"></div>
 					<!-- Navigation -->
 					<nav class="mdl-navigation">
-						<a class="mdl-navigation__link" href="" style="color: #212121;">Log In</a>
+						<a id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-navigation__link" style="color: #ffffff; background-color: #212121"><p style="padding-top: 7px">Log In</p></a>
 					</nav>
 				</div>
 			</header>
 			<div class="mdl-layout__drawer">
-				<span class="mdl-layout-title">Title</span>
+				<span class="mdl-layout-title">Pluto</span>
 				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="">Log In</a>
+					<button id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-navigation__link" style="color: #ffffff; background-color: #212121"><p style="padding-top: -20px">Log In</p></button>
+					<script>
+						$('#show-action').click(function () {
+        					showDialog({
+            					title: 'Action'
+        					});
+    					});
+					</script>
 				</nav>
 			</div>
 			<main class="mdl-layout__content">

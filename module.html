@@ -20,6 +20,19 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+        <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+        <script>
+                let stitchClient;
+          
+                function initApplication() {
+                  return stitch.StitchClientFactory.create('pluto-darkside-qvfre').then(client => {
+                    stitchClient = client;
+                  }).then(() => {
+                  });
+                }
+          
+        </script>
         
         <script>
             $(document).ready(function() {
@@ -35,7 +48,7 @@
             });
         </script>
     </head>
-    <body>
+    <body onload="initApplication()">
         <div id="fullpage">
             <div class="section" style="background-color: #fc604c">
                 <div class="notes" style="font-size: 86pt; line-height: 1.25; text-align: center; color: #ffffff">Module 1:<p style="font-size: 48pt; line-height: 1.25; color: #ffffff">What Investor Are You?</p></div>
