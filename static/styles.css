@@ -27,7 +27,28 @@
 body {
 	background-color: beige;
 }
+
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
   color: #212121;
+}
+
+.fadein {
+	-webkit-transition: opacity transform;
+	transition: opacity transform;
+	-webkit-transition-duration: 600ms;
+	transition-duration: 600ms;
+	-webkit-transition-timing-function: cubic-bezier(0.24, 0, 0.64, 1);
+	transition-timing-function: cubic-bezier(0.24, 0, 0.64, 1);
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+	-webkit-transform: translate3d(0, -50px, 0);
+	transform: translate3d(0, -50px, 0);
+	opacity: 0.0001
+}
+
+.fadein.engaged {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	opacity: 0.9999
 }
