@@ -41,7 +41,7 @@ function showDialog(options) {
     var dialog = $('#' + options.id);
     var content = dialog.find('.mdl-card');
 
-        $('<div class="box"> <div class="title">LOGIN</div> <div class="input"><input type="text" name="name" id="name" placeholder="Username"> <span class="spin"></span> </div> <div class="input"> <input type="password" name="pass" id="pass" placeholder="Password"> <span class="spin"></span> </div> <div class="button login"> <button><span>GO</span> <i class="fa fa-check"></i></button> </div> <a href="" class="pass-forgot" style="padding-bottom: 10px">New User? Create Account</a> <a href="" class="pass-forgot">Forgot your password?</a> </div>').appendTo(content);
+        $('<div class="box"> <div class="title">LOGIN</div> <div class="input"><input type="text" name="name" id="name" placeholder="Username"> <span class="spin"></span> </div> <div class="input"> <input type="password" name="pass" id="pass" placeholder="Password"> <span class="spin"></span> </div> <div class="button login"> <button><span>GO</span> <i class="fa fa-check"></i></button> </div> <a href="" class="pass-forgot" style="padding-bottom: 10px">Create Account</a> <a href="" class="pass-forgot">Forgot your password?</a> </div>').appendTo(content);
     
     if (options.text != null) {
         $('<p>' + options.text + '</p>').appendTo(content);
