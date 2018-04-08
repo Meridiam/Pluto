@@ -1,0 +1,64 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Pluto</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+            <link rel="stylesheet" type="text/css" href="./static/styles.css">
+    
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/vendors/scrolloverflow.min.js"></script>
+    
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+            <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.min.js"></script>
+    
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    
+            <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+            <script>
+                    let stitchClient;
+              
+                    function initApplication() {
+                      return stitch.StitchClientFactory.create('pluto-darkside-qvfre').then(client => {
+                        stitchClient = client;
+                      }).then(() => {
+                      });
+                    }
+              
+            </script>
+            
+            <script>
+                $(document).ready(function() {
+    
+                    $('#fullpage').fullpage({
+                        navigation: true,
+                        scrollOverflow: true,
+                        afterLoad: function(index) {
+                            $(this).find(".fadein").addClass("engaged")
+                        }
+                    });
+        
+                });
+            </script>
+        </head>
+        <body onload="initApplication()">
+            <div id="fullpage">
+                <div class="section" style="background-color: #fc604c">
+                    <div class="notes" style="font-size: 86pt; line-height: 1.25; text-align: center; color: #ffffff">Module 2:<p style="font-size: 48pt; line-height: 1.25; color: #ffffff">Avoiding Fraud</p></div>
+                </div>
+                <div class="section">
+                    <div class="notes fadein">Fraudsers use these tacics</div>
+                </div>
+                <div class="section">
+                    <div class="notes fadein">Phantom riches tactic: salespeople saying something that is impossible like dangling the process of wealth</div>
+                </div>
+            </div>
+        </body>
+    </html>
