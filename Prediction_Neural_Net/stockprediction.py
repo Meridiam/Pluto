@@ -156,3 +156,5 @@ def mean_absolute_percentage_error(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
 print(mean_absolute_percentage_error(y_test, pred))
+
+saver.save(net, 'saved_model', global_step=1000)
